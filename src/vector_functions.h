@@ -2,6 +2,7 @@
 #define VECTORFUNCTIONS_H
 
 #include <vector>
+#include <algorithm>
 
 template <typename T> int IsIn(std::vector<T> vect, T value)
 {
