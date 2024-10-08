@@ -7,11 +7,13 @@ project(fin-py)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add all source files in the src directory
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+set(SOURCES
+    src/main.cpp
+    src/generation.cpp
+    src/tokenizer.cpp
+    src/tokens.cpp)
 
+
+include_directories(include)
 # Create the executable from the source files
 add_executable(fin-py ${SOURCES})
-
-# Include the src directory for header files
-target_include_directories(fin-py PRIVATE src)

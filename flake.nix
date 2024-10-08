@@ -1,6 +1,5 @@
 {
-  description = "C++ example flake for Zero to Nix";
-
+  description = "Fin-Py is a compiled language offering a Python-like syntax with C++ performance.";
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2405.*.tar.gz";
   };
@@ -25,10 +24,10 @@
         default =
           let
             binName = "zero-to-nix-cpp";
-            cppDependencies = with pkgs; [ boost gcc poco ];
+            cppDependencies = with pkgs; [ libllvm gcc cmake ];
           in
           pkgs.stdenv.mkDerivation {
-            name = "zero-to-nix-cpp";
+            name = "fin-py";
             src = self;
             buildInputs = cppDependencies;
             buildPhase = "c++ -std=c++17 -o ${binName} ${./main.cpp} -lPocoFoundation -lboost_system";
