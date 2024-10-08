@@ -30,7 +30,8 @@
             name = "fin-py";
             src = self;
             buildInputs = cppDependencies;
-            buildPhase = "cmake -B build -S . && cmake --build build";
+            configurePhase = "cmake .";
+            buildPhase = "make";
             installPhase = ''
               mkdir -p $out/bin
               cp ${binName} $out/bin/
