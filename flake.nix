@@ -23,14 +23,14 @@
       packages = forAllSystems ({ pkgs }: {
         default =
           let
-            binName = "zero-to-nix-cpp";
-            cppDependencies = with pkgs; [ libllvm gcc cmake ];
+            binName = "fin-py";
+            cppDependencies = with pkgs; [ libllvm clang cmake ];
           in
           pkgs.stdenv.mkDerivation {
             name = "fin-py";
             src = self;
             buildInputs = cppDependencies;
-            buildPhase = "c++ -std=c++17 -o ${binName} ${./main.cpp} -lPocoFoundation -lboost_system";
+            buildPhase = "cmake -B build -S . && cmake --build build";
             installPhase = ''
               mkdir -p $out/bin
               cp ${binName} $out/bin/
