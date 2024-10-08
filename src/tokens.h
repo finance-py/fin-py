@@ -4,12 +4,49 @@
 #include <optional>
 #include <string>
 #include <vector>
+#include <map>
 
 
 #include "position.h"
 //#pragma once
 
-enum TokenType { RETURN, INTEGER_DEF, OPEN_PAREN, CLOSE_PAREN, INT_LITERAL, SEMICOLON, IDENT, EQUALS, ADDITION, EXIT , SUBTRACTION, MULTIPLICATION, DIVISION, INCREMENT, DECREMENT};
+//! we should also store their names ngl
+enum TokenType { 
+	RETURN,
+	INTEGER_DEF,
+	STRING_DEF,
+	BOOL,
+	FLOAT,
+	DECIMAL,
+	LIST,
+	ARRAY,
+	DICT,
+	CLASS,
+	OPEN_PAREN, 
+	CLOSE_PAREN, 
+	INT_LITERAL, 
+	SEMICOLON, 
+	COLON,
+	IDENT, 
+	EQUALS, 
+	ADDITION, 
+	EXIT, 
+	SUBTRACTION, 
+	MULTIPLICATION, 
+	DIVISION, 
+	INCREMENT, 
+	DECREMENT
+};
+
+std::map<TokenType, const char*> TokenMap = {
+	{TokenType::RETURN, "return"},
+	{TokenType::INTEGER_DEF, "int"},
+	{TokenType::STRING_DEF, "str"},
+	{TokenType::BOOL, "bool"},
+	{TokenType::FLOAT, "float"},
+	{TokenType::DECIMAL, "decimal"},
+	{TokenType::LIST, "list"}
+};
 
 
 struct Tokens
