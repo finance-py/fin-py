@@ -5,16 +5,32 @@ if [ ! -d "build" ]; then
     mkdir build
 fi
 
-# Change to the build directory
-cd build
+build() {
+    cmake -S . -B build
+    cmake --build build
+}
 
-# Run CMake to configure the project
-cmake .. -G "MinGW Makefiles"
+clean() {
+    rm -rf build
+}
 
-# Build the project
-mingw32-make
+all() {
+    clean
+    build
+}
 
-# Return to the original directory
-cd ..
-
-echo "Build process completed!"
+case "$1" in
+    build)
+        build
+        ;;
+    clean)
+        clean
+        ;;
+    all)
+        all
+        ;;
+    *)
+        echo "Usage: $0 {build|clean|all}"
+        exit 1
+        ;;
+esac

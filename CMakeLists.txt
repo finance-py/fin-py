@@ -7,12 +7,8 @@ project(fin-py)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(SOURCES
-    src/main.cpp
-    src/generation.cpp
-    src/parser.cpp
-    src/tokenizer.cpp
-    src/tokens.cpp)
+set(SOURCES src/main.cpp src/generation.cpp src/parser.cpp src/tokenizer.cpp
+            src/tokens.cpp)
 
 include_directories(include)
 # Create the executable from the source files
