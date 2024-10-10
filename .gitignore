@@ -25,3 +25,4 @@ out.c
 CLOC.py
 /testing
 /build
+.cache/clangd/index

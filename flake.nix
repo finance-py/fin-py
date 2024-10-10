@@ -24,7 +24,12 @@
         default =
           let
             binName = "fin-py";
-            cppDependencies = with pkgs; [ libllvm clang cmake ];
+            cppDependencies = with pkgs; [
+              libllvm
+              clang
+              cmake
+              boost
+            ];
           in
           pkgs.stdenv.mkDerivation {
             name = "fin-py";
